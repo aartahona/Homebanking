@@ -17,7 +17,7 @@ function cambiarLimiteDeExtraccion( limite) {
      var cantidad = parseInt(prompt("Nuevo Limite:"));
      var aux = limiteExtraccion;
     limiteExtraccion = cantidad;
-    actualizarSaldoEnPantalla();
+    actualizarLimiteEnPantalla();
     alert("Limite anterior: " + aux + "\nNuevo Limite: " + limiteExtraccion);
 
 
