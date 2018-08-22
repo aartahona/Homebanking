@@ -15,12 +15,16 @@ window.onload = function() {
 //Funciones que tenes que completar
 function cambiarLimiteDeExtraccion( limite) {
      var cantidad = parseInt(prompt("Nuevo Limite:"));
-     var aux = limiteExtraccion;
-    limiteExtraccion = cantidad;
-    actualizarLimiteEnPantalla();
-    alert("Limite anterior: " + aux + "\nNuevo Limite: " + limiteExtraccion);
-
-
+    if(cantidad <= 0){
+        alert("Esa cantidad no puede ser el nuevo limite");
+    }
+    else{
+        
+        var aux = limiteExtraccion;
+        limiteExtraccion = cantidad;
+        actualizarLimiteEnPantalla();
+        alert("Limite anterior: " + aux + "\nNuevo Limite: " + limiteExtraccion);
+    }
 }
 
 function sumar(cantidad){
