@@ -14,8 +14,8 @@ window.onload = function() {
 
 //Funciones que tenes que completar
 function cambiarLimiteDeExtraccion( limite) {
-     var cantidad = parseInt(prompt("Nuevo Limite:"));
-    if(cantidad <= 0){
+    var cantidad = parseInt(prompt("Nuevo Limite:"));
+    if(cantidad <= 0 || isNaN(cantidad)){
         alert("Esa cantidad no puede ser el nuevo limite");
     }
     else{
@@ -37,7 +37,7 @@ function restar(cantidad){
 
 function extraerDinero() {
     var cantidad = parseInt(prompt("Cantidad a retirar"));
-    if(cantidad <= 0){
+    if(cantidad <= 0 || isNaN(cantidad)){
         alert("Esa cantidad no se puede extraer");
     }
     else if(cantidad > saldoCuenta) {
