@@ -73,18 +73,19 @@ function depositarDinero() {
 
 function pagarServicio() {
     var opcion = parseInt(prompt("Ingrese el número que corresponda con el servicio que quiere pagar \n1 - Agua \n2 - Luz \n3 - Internet \n4 - Teléfono"));
-        switch(opcion) {
-            case 1:
-                break;
-            case 2:
-                break;
-            case 3:
-                break;
-            case 4:
-                break;
-            default:
-                alert("Opción no válida");
-                break;
+    switch(opcion) {
+        case 1:
+            break;
+        case 2:
+            break;
+        case 3:
+            break;
+        case 4:
+            break;
+        default:
+            alert("Opción no válida");
+            break;
+    }
 }
 
 function transferirDinero() {
