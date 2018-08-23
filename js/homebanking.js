@@ -9,14 +9,12 @@ var precioInternet = 570;
 var cuentaAmiga1 = 1234567;
 var cuentaAmiga2 = 7654321;
 
-
 //Ejecución de las funciones que actualizan los valores de las variables en el HTML.
 window.onload = function() {
     cargarNombreEnPantalla();
     actualizarSaldoEnPantalla();
     actualizarLimiteEnPantalla();
 }
-
 
 //Funciones que tenes que completar
 function cambiarLimiteDeExtraccion( limite) {
@@ -138,11 +136,30 @@ function pagarServicio() {
 }
 
 function transferirDinero() {
-    var numeroCuenta = parseInt(prompt(""));
+    var cantidad = parseInt(prompt("Monto a transferir:"));
+    if(cantidad <= 0 || isNaN(cantidad)){
+        alert("Esa cantidad es valida");
+    }
+    else if(cantidad > saldoCuenta) {
+        alert("No hay suficiente saldo en la cuenta para transferir ese monto");
+    }
+
+    else{
+        var numeroCuenta = parseInt(prompt("Ingrese el numero de cuenta a donde desea transferir"));
+        if(!verificarCuenta(numeroCuenta)){
+            alert("Esa cuenta no se encuentra en la agenda");
+        }
+        else{
+            var aux = saldoCuenta;
+            restar(cantidad);
+            actualizarSaldoEnPantalla();
+            alert("Transferencia a la cuenta: " + numeroCuenta + "\nMonto: " + cantidad + "\nSaldo Anterior: " + aux + "\nSaldo Actual: " + saldoCuenta); 
+        }     
+    }
 }
 
 function iniciarSesion() {
-
+    
 }
 
 //Funciones que actualizan el valor de las variables en el HTML
@@ -156,4 +173,18 @@ function actualizarSaldoEnPantalla() {
 
 function actualizarLimiteEnPantalla() {
     document.getElementById("limite-extraccion").innerHTML = "Tu límite de extracción es: $" + limiteExtraccion;
+}
+
+function verificarCuenta(cuenta) {
+    switch(cuenta){
+        case cuentaAmiga1:
+            return true;
+            break;
+        case cuentaAmiga2:
+            return true;
+            break;
+        default:
+            return false;
+            break;
+    }
 }
