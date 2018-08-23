@@ -2,6 +2,10 @@
 var saldoCuenta = 10000;
 var limiteExtraccion = 1000;
 var nombreUsuario = "Alberto Artahona";
+var precioAgua = 350;
+var precioTelefono = 425;
+var precioLuz = 210;
+var precioInternet = 570;
 
 
 //Ejecución de las funciones que actualizan los valores de las variables en el HTML.
@@ -68,7 +72,10 @@ function depositarDinero() {
 }
 
 function pagarServicio() {
-
+    var opcion = parseInt(prompt("Ingrese el número que corresponda con el servicio que quiere pagar \n1 - Agua \n2 - Luz \n3 - Internet \n4 - Teléfono"));
+    if(opcion <= 0 || opcion >4 || isNaN(opcion)){
+        alert("Opcion no válida");
+    }
 }
 
 function transferirDinero() {
