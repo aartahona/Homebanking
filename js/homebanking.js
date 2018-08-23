@@ -73,19 +73,63 @@ function depositarDinero() {
 
 function pagarServicio() {
     var opcion = parseInt(prompt("Ingrese el número que corresponda con el servicio que quiere pagar \n1 - Agua \n2 - Luz \n3 - Internet \n4 - Teléfono"));
-    switch(opcion) {
-        case 1:
-            break;
-        case 2:
-            break;
-        case 3:
-            break;
-        case 4:
-            break;
-        default:
-            alert("Opción no válida");
-            break;
-    }
+        switch(opcion) {
+            case 1:
+                if (confirm("El precio del servicio AGUA es de:\n" + precioAgua + "\n\nDesea continuar?")) {
+                    if(precioAgua<=saldoCuenta){
+                        var aux = saldoCuenta;
+                        restar(precioAgua);
+                        actualizarSaldoEnPantalla();
+                        alert("Has pagado: " + precioAgua + "\nSaldo Anterior: " + aux + "\nSaldo Actual: " + saldoCuenta); 
+                    }
+                    else{
+                        alert("No hay suficiente saldo para pagar este servicio"); 
+                    }
+                } 
+                break;
+            case 2:
+                if (confirm("El precio del servicio LUZ es de:\n" + precioLuz + "\n\nDesea continuar?")) {
+                    if(precioLuz<=saldoCuenta){
+                        var aux = saldoCuenta;
+                        restar(precioLuz);
+                        actualizarSaldoEnPantalla();
+                        alert("Has pagado: " + precioLuz + "\nSaldo Anterior: " + aux + "\nSaldo Actual: " + saldoCuenta); 
+                    }
+                    else{
+                        alert("No hay suficiente saldo para pagar este servicio"); 
+                    }
+                } 
+                break;
+            case 3:
+                if (confirm("El precio del servicio INTERNET es de:\n" + precioInternet + "\n\nDesea continuar?")) {
+                    if(precioInternet<=saldoCuenta){
+                        var aux = saldoCuenta;
+                        restar(precioInternet);
+                        actualizarSaldoEnPantalla();
+                        alert("Has pagado: " + precioInternet + "\nSaldo Anterior: " + aux + "\nSaldo Actual: " + saldoCuenta); 
+                    }
+                    else{
+                        alert("No hay suficiente saldo para pagar este servicio"); 
+                    }
+                }
+                break; 
+            case 4:                
+            if (confirm("El precio del servicio TELEFONO es de:\n" + precioTelefono + "\n\nDesea continuar?")) {
+                    if(precioTelefono<=saldoCuenta){
+                        var aux = saldoCuenta;
+                        restar(precioTelefono);
+                        actualizarSaldoEnPantalla();
+                        alert("Has pagado: " + precioTelefono + "\nSaldo Anterior: " + aux + "\nSaldo Actual: " + saldoCuenta); 
+                    }
+                    else{
+                        alert("No hay suficiente saldo para pagar este servicio"); 
+                    }
+                } 
+                break;
+            default:
+                alert("Opción no válida");
+                break;
+        }
 }
 
 function transferirDinero() {
