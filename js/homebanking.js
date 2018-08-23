@@ -6,6 +6,8 @@ var precioAgua = 350;
 var precioTelefono = 425;
 var precioLuz = 210;
 var precioInternet = 570;
+var cuentaAmiga1 = 1234567;
+var cuentaAmiga2 = 7654321;
 
 
 //Ejecución de las funciones que actualizan los valores de las variables en el HTML.
@@ -59,16 +61,19 @@ function extraerDinero() {
         actualizarSaldoEnPantalla();
         alert("Has retirado: " + cantidad + "\nSaldo Anterior: " + aux + "\nSaldo Actual: " + saldoCuenta); 
     }
-    
 }
 
 function depositarDinero() {
     var cantidad = parseInt(prompt("Cantidad a depositar:"));
-    var aux = saldoCuenta;
-    sumar(cantidad);
-    actualizarSaldoEnPantalla();
-    alert("Has depositado: " + cantidad + "\nSaldo Anterior: " + aux + "\nSaldo Actual: " + saldoCuenta);
-
+    if(cantidad <= 0 || isNaN(cantidad)){
+        alert("Esa cantidad no se puede depositar");
+    }
+    else{
+        var aux = saldoCuenta;
+        sumar(cantidad);
+        actualizarSaldoEnPantalla();
+        alert("Has depositado: " + cantidad + "\nSaldo Anterior: " + aux + "\nSaldo Actual: " + saldoCuenta);
+    }
 }
 
 function pagarServicio() {
@@ -133,7 +138,7 @@ function pagarServicio() {
 }
 
 function transferirDinero() {
-
+    var numeroCuenta = parseInt(prompt(""));
 }
 
 function iniciarSesion() {
