@@ -179,12 +179,11 @@ function verificarCuenta(cuenta) {
     switch(cuenta){
         case cuentaAmiga1:
             return true;
-            break;
+            
         case cuentaAmiga2:
             return true;
-            break;
+            
         default:
             return false;
-            break;
     }
 }
