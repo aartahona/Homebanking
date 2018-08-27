@@ -12,7 +12,6 @@ var codigoVerificacion = 1234;
 
 //Ejecución de las funciones que actualizan los valores de las variables en el HTML.
 window.onload = function() {
-   
     cargarNombreEnPantalla();
     actualizarSaldoEnPantalla();
     actualizarLimiteEnPantalla(); 
@@ -25,8 +24,7 @@ function cambiarLimiteDeExtraccion() {
     if(cantidad <= 0 || isNaN(cantidad)){
         alert("Esa cantidad no puede ser el nuevo limite");
     }
-    else{
-        
+    else{ 
         var aux = limiteExtraccion;
         limiteExtraccion = cantidad;
         actualizarLimiteEnPantalla();
@@ -137,18 +135,18 @@ function pagarServicio() {
                 }
                 break; 
             case 4:                
-            if (confirm("El precio del servicio TELEFONO es de:\n" + precioTelefono + "\n\nDesea continuar?")) {
-                    if(precioTelefono<=saldoCuenta){
-                        var aux = saldoCuenta;
-                        restar(precioTelefono);
-                        actualizarSaldoEnPantalla();
-                        alert("Has pagado: " + precioTelefono + "\nSaldo Anterior: " + aux + "\nSaldo Actual: " + saldoCuenta); 
-                    }
-                    else{
-                        alert("No hay suficiente saldo para pagar este servicio"); 
-                    }
-                } 
-                break;
+                if (confirm("El precio del servicio TELEFONO es de:\n" + precioTelefono + "\n\nDesea continuar?")) {
+                        if(precioTelefono<=saldoCuenta){
+                            var aux = saldoCuenta;
+                            restar(precioTelefono);
+                            actualizarSaldoEnPantalla();
+                            alert("Has pagado: " + precioTelefono + "\nSaldo Anterior: " + aux + "\nSaldo Actual: " + saldoCuenta); 
+                        }
+                        else{
+                            alert("No hay suficiente saldo para pagar este servicio"); 
+                        }
+                    } 
+                    break;
             default:
                 alert("Opción no válida");
                 break;
@@ -186,8 +184,10 @@ function iniciarSesion() {
         alert("Codigo Incorrecto. Tu dinero ha sido retenido por cuestiones de seguridad.");
         saldoCuenta = 0;
         limiteExtraccion = 0;
+        nombreUsuario = "";
         actualizarSaldoEnPantalla();
         actualizarLimiteEnPantalla()
+        cargarNombreEnPantalla();
     }
     else{
         alert("Bienvenido/a " + nombreUsuario + " ya puede comenzar a realizar operaciones");
@@ -211,7 +211,7 @@ function verificarCuenta(cuenta) {
     switch(cuenta){
         case cuentaAmiga1:
             return true;
-            
+        
         case cuentaAmiga2:
             return true;
             
