@@ -8,16 +8,19 @@ var precioLuz = 210;
 var precioInternet = 570;
 var cuentaAmiga1 = 1234567;
 var cuentaAmiga2 = 7654321;
+var codigoVerificacion = 1234;
 
 //Ejecución de las funciones que actualizan los valores de las variables en el HTML.
 window.onload = function() {
+   
     cargarNombreEnPantalla();
     actualizarSaldoEnPantalla();
-    actualizarLimiteEnPantalla();
+    actualizarLimiteEnPantalla(); 
+    iniciarSesion();
 }
 
 //Funciones que tenes que completar
-function cambiarLimiteDeExtraccion( limite) {
+function cambiarLimiteDeExtraccion() {
     var cantidad = parseInt(prompt("Nuevo Limite:"));
     if(cantidad <= 0 || isNaN(cantidad)){
         alert("Esa cantidad no puede ser el nuevo limite");
@@ -28,6 +31,23 @@ function cambiarLimiteDeExtraccion( limite) {
         limiteExtraccion = cantidad;
         actualizarLimiteEnPantalla();
         alert("Limite anterior: " + aux + "\nNuevo Limite: " + limiteExtraccion);
+    }
+}
+
+function cambiarCodigoVerificacion() {
+    var codigoaux = parseInt(prompt("Por seguridad introduzca el codigo de verificacion actual"));
+    if(codigoaux != codigoVerificacion){
+        alert("Codigo Incorrecto");
+    }
+    else{
+        codigoaux = parseInt(prompt("Introduzca el nuevo codigo deseado"));
+        if(codigoaux <= 0 || isNaN(codigoaux)){
+            alert("Ese numero no puede ser autorizado");
+        }
+        else {
+            codigoVerificacion = codigoaux;
+            alert("Nuevo codigo: " + codigoVerificacion);
+        }
     }
 }
 
@@ -159,7 +179,19 @@ function transferirDinero() {
 }
 
 function iniciarSesion() {
-    
+    nombreUsuario = prompt("Ingrese su nombre:");
+    cargarNombreEnPantalla();
+    var aux = prompt("Ingrese el codigo de verificacion");
+    if(aux != codigoVerificacion){
+        alert("Codigo Incorrecto. Tu dinero ha sido retenido por cuestiones de seguridad.");
+        saldoCuenta = 0;
+        limiteExtraccion = 0;
+        actualizarSaldoEnPantalla();
+        actualizarLimiteEnPantalla()
+    }
+    else{
+        alert("Bienvenido/a " + nombreUsuario + " ya puede comenzar a realizar operaciones");
+    }
 }
 
 //Funciones que actualizan el valor de las variables en el HTML
